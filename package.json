@@ -1,0 +1,16 @@
+{
+  "name": "developer-assignment-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/components/App.js",
+  "scripts": {
+    "test": "jest --watch",
+    "test:All": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "Gaurav Sharma",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
