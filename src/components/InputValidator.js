@@ -1,32 +1,35 @@
 const {
-  moveRules,
+  moveWinningRules,
   playerTypes,
   USER_ACCEPT,
-  USER_DENY
+  USER_DENY,
+  PLAYER_TYPE,
+  MOVE_TYPE,
+  USER_CONFIRMATION_RESPONSE
 } = require("../utils/Constants");
-const { displayMessage } = require("../utils/Utils");
 
 class InputValidator {
-  moveNameInput(moveInput) {
-    if (Object.keys(moveRules).includes(moveInput.toLowerCase())) {
-      return moveInput.toLowerCase();
-    }
+  isValidInput(validInputs, newInput) {
+    const lowerCaseInput = newInput.toLowerCase();
+    if (validInputs.includes(lowerCaseInput)) return lowerCaseInput;
     return false;
   }
 
-  playerTypeInput(playerType) {
-    if (playerTypes.includes(playerType.toLowerCase())) {
-      return playerType.toLowerCase();
+  validateUserInput(input, inputType) {
+    switch (inputType) {
+      case MOVE_TYPE:
+        return this.isValidInput(Object.keys(moveWinningRules), input);
+      case PLAYER_TYPE:
+        return this.isValidInput(playerTypes, input);
+      case USER_CONFIRMATION_RESPONSE:
+        const positiveCase = this.isValidInput(USER_ACCEPT, input);
+        if (positiveCase) return "y";
+        const negativeCase = this.isValidInput(USER_DENY, input);
+        if (negativeCase) return "n";
+        return false;
+      default:
+        return false;
     }
-    return false;
-  }
-
-  repeatGameInput(confirmation) {
-    if (USER_ACCEPT.includes(confirmation.toLowerCase())) {
-      return "y";
-    } else if (USER_DENY.includes(confirmation.toLowerCase())) {
-      return "n";
-    } else return false;
   }
 }
 

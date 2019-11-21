@@ -1,17 +1,38 @@
 const { displayMessage } = require("../utils/Utils");
-const { moveRules } = require("../utils/Constants");
+const { moveWinningRules, COMPUTER, NO_WINNER_ERROR_MESSAGE } = require("../utils/Constants");
 
 class Game {
-  getWinner(moveA, moveB) {
-    if (moveRules[moveA].includes(moveB)) {
+  constructor() {
+    this.winningPlayer = 0;
+  }
+
+  getWinner(playerMoves) {
+    const { playerA: moveA, playerB: moveB } = playerMoves;
+    if (moveWinningRules[moveA].includes(moveB)) {
       displayMessage(`${moveA} beats ${moveB}!`);
+      this.winningPlayer = 1;
       return moveA;
-    } else if (moveRules[moveB].includes(moveA)) {
+    } else if (moveWinningRules[moveB].includes(moveA)) {
       displayMessage(`${moveB} beats ${moveA}!`);
+      this.winningPlayer = 2;
       return moveB;
     } else {
       displayMessage(`Both players chose ${moveA}. It's a draw. Play again!`);
       return false;
+    }
+  }
+
+  announceWinner(playerType) {
+    if (this.winningPlayer === 1) {
+      displayMessage(`(Player 1) ${COMPUTER} wins!`);
+    } else if (this.winningPlayer === 2) {
+      displayMessage(
+        `(Player 2) ${playerType === COMPUTER ? COMPUTER : "you"} ${
+          playerType === COMPUTER ? "wins" : "win"
+        }!`
+      );
+    } else {
+      displayMessage(NO_WINNER_ERROR_MESSAGE)
     }
   }
 }

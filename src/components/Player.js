@@ -1,6 +1,11 @@
 const { generateRandomInt } = require("../utils/Utils");
-const Query = require("./Query");
-const { ENTER_MOVE_MESSAGE, moves, COMPUTER } = require("../utils/Constants");
+const {
+  ENTER_MOVE_MESSAGE,
+  MOVE_TYPE,
+  moves,
+  COMPUTER
+} = require("../utils/Constants");
+const requestValidInput = require("../utils/RequestValidInput");
 
 class Player {
   constructor(userType) {
@@ -12,8 +17,7 @@ class Player {
       const newMoveNumber = await generateRandomInt(3);
       return moves[newMoveNumber];
     } else {
-      const query = new Query();
-      const move = await query.makeQuery(ENTER_MOVE_MESSAGE);
+      const move = await requestValidInput(MOVE_TYPE, ENTER_MOVE_MESSAGE);
       return move;
     }
   }
