@@ -1,5 +1,9 @@
 const { displayMessage } = require("../common/Utils");
-const { moveWinningRules, COMPUTER, NO_WINNER_ERROR_MESSAGE } = require("../common/Constants");
+const {
+  moveWinningRules,
+  COMPUTER,
+  NO_WINNER_ERROR_MESSAGE
+} = require("../common/Constants");
 
 class Game {
   constructor() {
@@ -11,11 +15,11 @@ class Game {
     if (moveWinningRules[moveA].includes(moveB)) {
       displayMessage(`${moveA} beats ${moveB}!`);
       this.winningPlayer = 1;
-      return moveA;
+      return 1;
     } else if (moveWinningRules[moveB].includes(moveA)) {
       displayMessage(`${moveB} beats ${moveA}!`);
       this.winningPlayer = 2;
-      return moveB;
+      return 2;
     } else {
       displayMessage(`Both players chose ${moveA}. It's a draw. Play again!`);
       return false;
@@ -32,7 +36,7 @@ class Game {
         }!`
       );
     } else {
-      displayMessage(NO_WINNER_ERROR_MESSAGE)
+      displayMessage(NO_WINNER_ERROR_MESSAGE);
     }
   }
 }

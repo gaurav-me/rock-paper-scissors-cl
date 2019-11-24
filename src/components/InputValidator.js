@@ -5,7 +5,7 @@ const {
   USER_DENY,
   PLAYER_TYPE,
   MOVE_TYPE,
-  USER_CONFIRMATION_RESPONSE
+  USER_CONFIRMATION_RESPONSE_TYPE
 } = require("../common/Constants");
 
 class InputValidator {
@@ -21,7 +21,7 @@ class InputValidator {
         return this.isValidInput(Object.keys(moveWinningRules), input);
       case PLAYER_TYPE:
         return this.isValidInput(playerTypes, input);
-      case USER_CONFIRMATION_RESPONSE:
+      case USER_CONFIRMATION_RESPONSE_TYPE:
         const positiveCase = this.isValidInput(USER_ACCEPT, input);
         if (positiveCase) return "y";
         const negativeCase = this.isValidInput(USER_DENY, input);

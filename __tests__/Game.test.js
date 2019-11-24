@@ -16,8 +16,8 @@ describe("Tests whether the Game class correctly identifies and alerts of differ
       input => (messageDisplayed += input)
     );
     const winningMove = newGame.getWinner(mockPlayerMoves);
-    expect(typeof winningMove).toBe("string");
-    expect(winningMove).toEqual("paper");
+    expect(typeof winningMove).toBe("number");
+    expect(winningMove).toEqual(2);
     expect(messageDisplayed).toBe("paper beats rock!");
     expect(newGame.winningPlayer).toBe(2);
   });

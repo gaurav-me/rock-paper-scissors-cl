@@ -11,11 +11,12 @@ const INVALID_PLAYER_INPUT_PHRASE =
   "is not a valid player type. Please enter the player type again. ";
 const ENTER_MOVE_MESSAGE =
   "Enter your move (choose either 'rock', 'paper', or 'scissors'): ";
+const BLANK_LINE = "";
 const USER_ACCEPT = ["y", "yes", "ok", "okay"];
 const USER_DENY = ["n", "no", "nope"];
 const INVALID_INPUT_PHRASE = "is not a valid";
 const REPEAT_GAME_MESSAGE = "Play again? (y/n): ";
-const NO_WINNER_ERROR_MESSAGE = "There is no winner yet.";
+const NO_WINNER_ERROR_MESSAGE = "There is no winner.";
 
 const ROCK = "rock";
 const PAPER = "paper";
@@ -24,7 +25,7 @@ const HUMAN = "human";
 const COMPUTER = "computer";
 const PLAYER_TYPE = "player type";
 const MOVE_TYPE = "move";
-const USER_CONFIRMATION_RESPONSE = "response";
+const USER_CONFIRMATION_RESPONSE_TYPE = "response";
 
 const playerTypes = [HUMAN, COMPUTER];
 const moves = { "0": ROCK, "1": PAPER, "2": SCISSORS };
@@ -45,13 +46,14 @@ module.exports = {
   INVALID_PLAYER_INPUT_PHRASE,
   ENTER_MOVE_MESSAGE,
   INVALID_INPUT_PHRASE,
-  USER_CONFIRMATION_RESPONSE,
+  USER_CONFIRMATION_RESPONSE_TYPE,
   REPEAT_GAME_MESSAGE,
   NO_WINNER_ERROR_MESSAGE,
   PLAYER_TYPE,
   MOVE_TYPE,
   USER_ACCEPT,
   USER_DENY,
+  BLANK_LINE,
   ROCK,
   PAPER,
   SCISSORS,

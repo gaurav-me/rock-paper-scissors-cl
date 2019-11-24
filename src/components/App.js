@@ -4,6 +4,7 @@ const { displayMessage } = require("../common/Utils");
 const requestValidInput = require("../common/RequestValidInput");
 const {
   COMPUTER,
+  BLANK_LINE,
   PLAYER_TYPE,
   GAME_END_MESSAGE,
   GAME_START_MESSAGE,
@@ -19,6 +20,7 @@ const playGame = async () => {
   const currentGame = new Game();
 
   displayMessage(GAME_START_MESSAGE);
+  displayMessage(BLANK_LINE);
 
   let playerType = await requestValidInput(
     PLAYER_TYPE,
@@ -26,6 +28,7 @@ const playGame = async () => {
   );
 
   displayMessage(`${VALIDATION_SUCCESS_PHRASE} ${playerType}`);
+  displayMessage(BLANK_LINE);
 
   const playerA = new Player(COMPUTER);
   const playerB = new Player(playerType);
@@ -46,12 +49,13 @@ const playGame = async () => {
       `(Player 2) ${playerType === COMPUTER ? COMPUTER : "you"} chose ${moveB}`
     );
     displayMessage(`(Player 1) ${COMPUTER} chose ${moveA}`);
+    displayMessage(BLANK_LINE);
     winner = currentGame.getWinner({ playerA: moveA, playerB: moveB });
     gameRounds += 1;
   }
 
   currentGame.announceWinner(playerType);
-  return;
+  return winner;
 };
 
 const playGameLoop = async () => {
@@ -66,8 +70,9 @@ const playGameLoop = async () => {
       end = true;
     }
   }
+  displayMessage(BLANK_LINE);
   displayMessage(GAME_END_MESSAGE);
   return;
 };
 
-module.exports = playGameLoop;
+module.exports = { playGameLoop, playGame };

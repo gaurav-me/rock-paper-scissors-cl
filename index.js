@@ -1,3 +1,3 @@
-const playGameLoop = require("./src/components/App");
+const { playGameLoop } = require("./src/components/App");
 
 playGameLoop();
