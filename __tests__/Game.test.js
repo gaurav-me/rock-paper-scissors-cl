@@ -4,7 +4,10 @@ const Constants = require("../src/common/Constants");
 jest.mock("../src/common/Utils");
 
 describe("Tests whether the Game class correctly identifies different game scenarios", () => {
-  beforeEach(() => jest.resetModules());
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+  });
 
   const mockPlayerMoves = { playerA: Constants.ROCK, playerB: Constants.PAPER };
   const mockPlayerMovesDraw = {
