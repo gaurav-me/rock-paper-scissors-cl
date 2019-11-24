@@ -13,10 +13,12 @@ describe("Tests correctness of the common function requestValidInput used in the
   });
 
   test("requestValidInput function accepts valid user input", async () => {
-    Query.prototype.makeQuery = jest.fn().mockImplementation(() => "computer");
+    Query.prototype.makeQuery = jest
+      .fn()
+      .mockImplementation(() => Constants.COMPUTER);
     InputValidator.prototype.validateUserInput = jest
       .fn()
-      .mockImplementation(() => "computer");
+      .mockImplementation(() => Constants.COMPUTER);
 
     const spy = jest.spyOn(Utils, "displayMessage");
 
@@ -24,7 +26,7 @@ describe("Tests correctness of the common function requestValidInput used in the
       Constants.PLAYER_TYPE,
       Constants.REQUEST_PLAYER_TYPE_MESSAGE
     );
-    expect(validPlayerInput).toEqual("computer");
+    expect(validPlayerInput).toEqual(Constants.COMPUTER);
     expect(spy).not.toHaveBeenCalled();
   });
 
@@ -33,7 +35,7 @@ describe("Tests correctness of the common function requestValidInput used in the
     InputValidator.prototype.validateUserInput = jest
       .fn()
       .mockReturnValueOnce(false)
-      .mockReturnValueOnce("human");
+      .mockReturnValueOnce(Constants.HUMAN);
 
     const spy = jest.spyOn(Utils, "displayMessage");
 
@@ -49,6 +51,6 @@ describe("Tests correctness of the common function requestValidInput used in the
       "Sorry, Wrong Input is not a valid player type. Please enter the player type again."
     );
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(validPlayerInput).toEqual("human");
+    expect(validPlayerInput).toEqual(Constants.HUMAN);
   });
 });

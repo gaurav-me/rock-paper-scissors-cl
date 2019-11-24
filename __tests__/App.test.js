@@ -19,8 +19,8 @@ describe("Tests playGame function that controls the flow of the game", () => {
     requestValidInput.mockReturnValue(Constants.COMPUTER);
     Player.prototype.makeMove = jest
       .fn()
-      .mockReturnValueOnce("rock")
-      .mockReturnValueOnce("scissors");
+      .mockReturnValueOnce(Constants.ROCK)
+      .mockReturnValueOnce(Constants.SCISSORS);
     const winner = await App.playGame();
     expect(winner).toEqual(1);
     expect(Utils.displayMessage).toHaveBeenCalledTimes(
@@ -35,10 +35,10 @@ describe("Tests playGame function that controls the flow of the game", () => {
     requestValidInput.mockReturnValue(Constants.HUMAN);
     Player.prototype.makeMove = jest
       .fn()
-      .mockReturnValueOnce("rock")
-      .mockReturnValueOnce("rock")
-      .mockReturnValueOnce("paper")
-      .mockReturnValueOnce("scissors");
+      .mockReturnValueOnce(Constants.ROCK)
+      .mockReturnValueOnce(Constants.ROCK)
+      .mockReturnValueOnce(Constants.PAPER)
+      .mockReturnValueOnce(Constants.SCISSORS);
     const winner = await App.playGame();
     expect(winner).toEqual(2);
     expect(Utils.displayMessage).toHaveBeenCalledTimes(
@@ -50,7 +50,9 @@ describe("Tests playGame function that controls the flow of the game", () => {
   });
 
   test("Current game ends after 50 rounds maximum limit", async () => {
-    Player.prototype.makeMove = jest.fn().mockImplementation(() => "rock");
+    Player.prototype.makeMove = jest
+      .fn()
+      .mockImplementation(() => Constants.ROCK);
     Game.prototype.getWinner = jest.fn().mockImplementation(() => false);
     requestValidInput.mockReturnValue(Constants.COMPUTER);
     const winner = await App.playGame();

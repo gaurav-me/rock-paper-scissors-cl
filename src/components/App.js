@@ -9,11 +9,12 @@ const {
   GAME_END_MESSAGE,
   GAME_START_MESSAGE,
   REPEAT_GAME_MESSAGE,
+  USER_INPUT_END_GAME,
   VALIDATION_SUCCESS_PHRASE,
   REQUEST_PLAYER_TYPE_MESSAGE,
   MAX_NUMBER_OF_GAME_ROUNDS,
   MAX_ROUNDS_TERMINATION_MESSAGE,
-  USER_CONFIRMATION_RESPONSE_TYPE,
+  USER_CONFIRMATION_RESPONSE_TYPE
 } = require("../common/Constants");
 
 const playGame = async () => {
@@ -62,15 +63,15 @@ const playGameLoop = async () => {
   let end = false;
   while (!end) {
     await playGame();
+    displayMessage(BLANK_LINE);
     const userResponse = await requestValidInput(
       USER_CONFIRMATION_RESPONSE_TYPE,
       REPEAT_GAME_MESSAGE
     );
-    if (userResponse === "n") {
+    if (userResponse === USER_INPUT_END_GAME) {
       end = true;
     }
   }
-  displayMessage(BLANK_LINE);
   displayMessage(GAME_END_MESSAGE);
   return;
 };

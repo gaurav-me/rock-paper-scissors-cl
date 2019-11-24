@@ -33,23 +33,23 @@ describe("Tests whether the input validation function accepts correct values", (
 
   test("validateUserInput returns valid user move-type input", () => {
     const validMoveInput = "Paper";
-    validator.isValidInput = jest.fn().mockReturnValue("paper");
+    validator.isValidInput = jest.fn().mockReturnValue(Constants.PAPER);
     const validatedInput = validator.validateUserInput(
       validMoveInput,
       Constants.MOVE_TYPE
     );
     expect(typeof validatedInput).toBe("string");
-    expect(validatedInput).toEqual("paper");
+    expect(validatedInput).toEqual(Constants.PAPER);
   });
   test("validateUserInput returns valid user player-type input", () => {
-    const validPlayerInput = "computer";
-    validator.isValidInput = jest.fn().mockReturnValue("computer");
+    const validPlayerInput = "Computer";
+    validator.isValidInput = jest.fn().mockReturnValue(Constants.COMPUTER);
     const validatedInput = validator.validateUserInput(
       validPlayerInput,
       Constants.PLAYER_TYPE
     );
     expect(typeof validatedInput).toBe("string");
-    expect(validatedInput).toEqual("computer");
+    expect(validatedInput).toEqual(Constants.COMPUTER);
   });
 
   test("validateUserInput returns valid user confirmation (yes/no) response", () => {
@@ -60,7 +60,7 @@ describe("Tests whether the input validation function accepts correct values", (
       Constants.USER_CONFIRMATION_RESPONSE_TYPE
     );
     expect(typeof validatedInputPositive).toBe("string");
-    expect(validatedInputPositive).toEqual("y");
+    expect(validatedInputPositive).toEqual(Constants.USER_INPUT_PLAY_AGAIN);
   });
 
   test("validateUserInput returns false for invalid user move-type input", () => {

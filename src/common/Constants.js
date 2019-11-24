@@ -14,6 +14,8 @@ const ENTER_MOVE_MESSAGE =
 const BLANK_LINE = "";
 const USER_ACCEPT = ["y", "yes", "ok", "okay"];
 const USER_DENY = ["n", "no", "nope"];
+const USER_INPUT_PLAY_AGAIN = "Y";
+const USER_INPUT_END_GAME = "n";
 const INVALID_INPUT_PHRASE = "is not a valid";
 const REPEAT_GAME_MESSAGE = "Play again? (y/n): ";
 const NO_WINNER_ERROR_MESSAGE = "There is no winner.";
@@ -49,6 +51,8 @@ module.exports = {
   USER_CONFIRMATION_RESPONSE_TYPE,
   REPEAT_GAME_MESSAGE,
   NO_WINNER_ERROR_MESSAGE,
+  USER_INPUT_PLAY_AGAIN,
+  USER_INPUT_END_GAME,
   PLAYER_TYPE,
   MOVE_TYPE,
   USER_ACCEPT,

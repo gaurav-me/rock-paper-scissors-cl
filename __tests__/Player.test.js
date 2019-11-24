@@ -16,7 +16,7 @@ describe("Tests the ability of either type of player in the game to generate a n
     const newPlayerComputer = new Player(Constants.COMPUTER);
     const newComputerMove = await newPlayerComputer.makeMove();
     expect(typeof newComputerMove).toBe("string");
-    expect(newComputerMove).toEqual("paper");
+    expect(newComputerMove).toEqual(Constants.PAPER);
   });
 
   test("Human player type can choose a move ('rock', 'paper' or 'scissors')", async () => {
@@ -24,6 +24,6 @@ describe("Tests the ability of either type of player in the game to generate a n
     requestValidInput.mockReturnValue("rock");
     const newComputerMove = await newPlayerComputer.makeMove();
     expect(typeof newComputerMove).toBe("string");
-    expect(newComputerMove).toEqual("rock");
+    expect(newComputerMove).toEqual(Constants.ROCK);
   });
 });

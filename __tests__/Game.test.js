@@ -6,8 +6,11 @@ jest.mock("../src/common/Utils");
 describe("Tests whether the Game class correctly identifies different game scenarios", () => {
   beforeEach(() => jest.resetModules());
 
-  const mockPlayerMoves = { playerA: "rock", playerB: "paper" };
-  const mockPlayerMovesDraw = { playerA: "scissors", playerB: "scissors" };
+  const mockPlayerMoves = { playerA: Constants.ROCK, playerB: Constants.PAPER };
+  const mockPlayerMovesDraw = {
+    playerA: Constants.SCISSORS,
+    playerB: Constants.SCISSORS
+  };
 
   test("Game class identifies winner based on unique player moves", () => {
     const newGame = new Game();
