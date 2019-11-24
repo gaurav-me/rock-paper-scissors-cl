@@ -63,7 +63,7 @@ const playGameLoop = async () => {
   while (!end) {
     await playGame();
     const userResponse = await requestValidInput(
-      USER_CONFIRMATION_RESPONSE,
+      USER_CONFIRMATION_RESPONSE_TYPE,
       REPEAT_GAME_MESSAGE
     );
     if (userResponse === "n") {
