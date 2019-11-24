@@ -1,9 +1,9 @@
 const Player = require("../src/components/Player");
-const Utils = require("../src/utils/Utils");
-const Constants = require("../src/utils/Constants");
-const requestValidInput = require("../src/utils/RequestValidInput");
-jest.mock("../src/utils/RequestValidInput");
-jest.mock("../src/utils/Utils");
+const Utils = require("../src/common/Utils");
+const Constants = require("../src/common/Constants");
+const requestValidInput = require("../src/common/RequestValidInput");
+jest.mock("../src/common/RequestValidInput");
+jest.mock("../src/common/Utils");
 
 describe("Tests the ability of any type of player in the game to generate a new move", () => {
   // const mockMath = Object.create(global.Math);

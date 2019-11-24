@@ -3,9 +3,10 @@ const { displayMessage } = require("./Utils");
 const Query = require("../components/Query");
 const InputValidator = require("../components/InputValidator");
 
+const validator = new InputValidator();
+const query = new Query();
+
 module.exports = requestValidInput = async (inputType, queryMessage) => {
-  const validator = new InputValidator();
-  const query = new Query();
   let input = await query.makeQuery(queryMessage);
   let validatedInput = validator.validateUserInput(input, inputType);
   while (!validatedInput) {

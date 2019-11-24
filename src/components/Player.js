@@ -1,12 +1,12 @@
-const { generateRandomInt } = require("../utils/Utils");
+const { generateRandomInt } = require("../common/Utils");
 const {
   ENTER_MOVE_MESSAGE,
   MOVE_TYPE,
   moves,
   COMPUTER,
   HUMAN
-} = require("../utils/Constants");
-const requestValidInput = require("../utils/RequestValidInput");
+} = require("../common/Constants");
+const requestValidInput = require("../common/RequestValidInput");
 
 class Player {
   constructor(userType) {

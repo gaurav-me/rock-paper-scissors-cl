@@ -1,15 +1,15 @@
 const Game = require("../src/components/Game");
-const Utils = require("../src/utils/Utils");
-const Constants = require("../src/utils/Constants");
-jest.mock("../src/utils/Utils");
+const Utils = require("../src/common/Utils");
+const Constants = require("../src/common/Constants");
+jest.mock("../src/common/Utils");
 
-describe("Tests whether the input validation function is accepting correct values", () => {
+describe("Tests whether the Game class correctly identifies and alerts of different game scenarios", () => {
   beforeEach(() => jest.resetModules());
 
   const mockPlayerMoves = { playerA: "rock", playerB: "paper" };
   const mockPlayerMovesDraw = { playerA: "scissors", playerB: "scissors" };
 
-  test("Game engine identifies winner based on different player moves", () => {
+  test("Game engine identifies winner based on unique player moves", () => {
     const newGame = new Game();
     let messageDisplayed = "";
     Utils.displayMessage.mockImplementation(

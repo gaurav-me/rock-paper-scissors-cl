@@ -1,7 +1,7 @@
 const Game = require("./Game");
 const Player = require("./Player");
-const { displayMessage } = require("../utils/Utils");
-const requestValidInput = require("../utils/RequestValidInput");
+const { displayMessage } = require("../common/Utils");
+const requestValidInput = require("../common/RequestValidInput");
 const {
   COMPUTER,
   PLAYER_TYPE,
@@ -13,7 +13,7 @@ const {
   REQUEST_PLAYER_TYPE_MESSAGE,
   MAX_NUMBER_OF_GAME_ROUNDS,
   MAX_ROUNDS_TERMINATION_MESSAGE
-} = require("../utils/Constants");
+} = require("../common/Constants");
 
 const playGame = async () => {
   const currentGame = new Game();

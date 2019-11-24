@@ -1,5 +1,5 @@
-const { displayMessage } = require("../utils/Utils");
-const { moveWinningRules, COMPUTER, NO_WINNER_ERROR_MESSAGE } = require("../utils/Constants");
+const { displayMessage } = require("../common/Utils");
+const { moveWinningRules, COMPUTER, NO_WINNER_ERROR_MESSAGE } = require("../common/Constants");
 
 class Game {
   constructor() {

@@ -6,7 +6,7 @@ const {
   PLAYER_TYPE,
   MOVE_TYPE,
   USER_CONFIRMATION_RESPONSE
-} = require("../utils/Constants");
+} = require("../common/Constants");
 
 class InputValidator {
   isValidInput(validInputs, newInput) {
