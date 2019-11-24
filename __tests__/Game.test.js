@@ -3,13 +3,13 @@ const Utils = require("../src/common/Utils");
 const Constants = require("../src/common/Constants");
 jest.mock("../src/common/Utils");
 
-describe("Tests whether the Game class correctly identifies and alerts of different game scenarios", () => {
+describe("Tests whether the Game class correctly identifies different game scenarios", () => {
   beforeEach(() => jest.resetModules());
 
   const mockPlayerMoves = { playerA: "rock", playerB: "paper" };
   const mockPlayerMovesDraw = { playerA: "scissors", playerB: "scissors" };
 
-  test("Game engine identifies winner based on unique player moves", () => {
+  test("Game class identifies winner based on unique player moves", () => {
     const newGame = new Game();
     let messageDisplayed = "";
     Utils.displayMessage.mockImplementation(
@@ -22,7 +22,7 @@ describe("Tests whether the Game class correctly identifies and alerts of differ
     expect(newGame.winningPlayer).toBe(2);
   });
 
-  test("Game engine identifies a draw based on the same player moves", () => {
+  test("Game class identifies a draw based on the same player moves", () => {
     const newGame = new Game();
     let messageDisplayed = "";
     Utils.displayMessage.mockImplementation(
@@ -37,7 +37,7 @@ describe("Tests whether the Game class correctly identifies and alerts of differ
     expect(newGame.winningPlayer).toBe(0);
   });
 
-  test("Game announces computer as correct winner", () => {
+  test("Game class announces (Player 1) computer as correct winner", () => {
     const newGame = new Game();
     let messageDisplayed = "";
     Utils.displayMessage.mockImplementation(
@@ -48,7 +48,7 @@ describe("Tests whether the Game class correctly identifies and alerts of differ
     expect(messageDisplayed).toBe("(Player 1) computer wins!");
   });
 
-  test("Game announces human as correct winner", () => {
+  test("Game class announces human as correct winner", () => {
     const newGame = new Game();
     let messageDisplayed = "";
     Utils.displayMessage.mockImplementation(
