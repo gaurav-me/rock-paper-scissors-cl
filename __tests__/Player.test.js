@@ -5,11 +5,11 @@ const requestValidInput = require("../src/common/RequestValidInput");
 jest.mock("../src/common/RequestValidInput");
 jest.mock("../src/common/Utils");
 
-describe("Tests the ability of any type of player in the game to generate a new move", () => {
-  // const mockMath = Object.create(global.Math);
-  // mockMath.random = () => 0.1;
-  // global.Math = mockMath;
-  beforeEach(() => jest.resetModules());
+describe("Tests the ability of either type of player in the game to generate a new move", () => {
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+  });
 
   test("Computer player type can randomly choose a move (either 'rock', 'paper' or 'scissors')", async () => {
     Utils.generateRandomInt.mockReturnValue(1);
