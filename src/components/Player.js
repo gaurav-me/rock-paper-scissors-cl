@@ -2,7 +2,7 @@ const { generateRandomInt } = require("../common/Utils");
 const {
   ENTER_MOVE_MESSAGE,
   MOVE_TYPE,
-  moves,
+  movesMapper,
   COMPUTER,
   HUMAN
 } = require("../common/Constants");
@@ -16,7 +16,7 @@ class Player {
   async makeMove() {
     if (this.userType === COMPUTER) {
       const newMoveNumber = await generateRandomInt(3);
-      return moves[newMoveNumber];
+      return movesMapper[newMoveNumber];
     } else if (this.userType === HUMAN) {
       const move = await requestValidInput(MOVE_TYPE, ENTER_MOVE_MESSAGE);
       return move;
