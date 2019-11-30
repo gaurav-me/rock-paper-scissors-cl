@@ -30,7 +30,7 @@ const MOVE_TYPE = "move";
 const USER_CONFIRMATION_RESPONSE_TYPE = "response";
 
 const playerTypes = [HUMAN, COMPUTER];
-const moves = { "0": ROCK, "1": PAPER, "2": SCISSORS };
+const movesMapper = { "0": ROCK, "1": PAPER, "2": SCISSORS };
 const moveWinningRules = {
   [ROCK]: [SCISSORS],
   [PAPER]: [ROCK],
