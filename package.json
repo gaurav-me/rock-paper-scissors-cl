@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/components/App.js",
   "scripts": {
+    "game": "node index.js",
     "test": "jest --watch",
     "test:All": "jest --watchAll"
   },
